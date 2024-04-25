@@ -1,10 +1,10 @@
 # Scientific Knowledge Question Answering
 ## IR 2조
 
-| ![김태한](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김소현](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김준호](https://avatars.githubusercontent.com/u/156163982?v=4) | ![최장원](https://avatars.githubusercontent.com/u/156163982?v=4) |
-| :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
-|            [김태한](https://github.com/UpstageAILab)             |            [김소현](https://github.com/UpstageAILab)             |            [김준호](https://github.com/UpstageAILab)             |            [최장원](https://github.com/UpstageAILab)             | 
-|                            팀장, 리서치, 데이터생성, 모델링                             |                            리서치, 데이터생성, 모델링                             |                            리서치, 데이터생성, 모델링                             |                            리서치, 데이터생성, 모델링                             | 
+| ![김태한](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김소현](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김준호](https://avatars.githubusercontent.com/u/156163982?v=4) | ![최장원](https://avatars.githubusercontent.com/u/156163982?v=4) |  
+| :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |  
+|   [김태한](https://github.com/UpstageAILab)   |    [김소현](https://github.com/UpstageAILab)       |   [김준호](https://github.com/UpstageAILab)     |            [최장원](https://github.com/UpstageAILab)             |   
+|    팀장, 리서치, 데이터생성, 모델링   |      리서치, 데이터생성, 모델링          |           리서치, 데이터생성, 모델링         |     리서치, 데이터생성, 모델링    |  
 
 ## 0. Overview
 ### Environment
