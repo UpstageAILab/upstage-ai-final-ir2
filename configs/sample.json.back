@@ -1,0 +1,31 @@
+{
+    "data_args": {
+        "path": "TQA_data-v8.csv",
+        "eval_data_path": "../test_data/mirae_test.csv",
+        "mask_eval_data_path": "../test_data/unk_mrn_test.csv",
+        "eval_att_list": {
+            "수학 용어": ["설명", "페이지", "단원 번호", "용어"],
+            "수학 단원": ["대단원", "소단원", "학습 목표", "페이지", "단원 번호"],
+            "수학 문제": ["문제 내용", "정답 페이지", "풀이", "페이지", "단원 번호"]
+        },
+        "shuffle": true
+    },
+    "model_args": {
+        "backbone": "../files/roberta_trained_weight_v3/5/",
+        "tokenizer": "klue/roberta-base"
+    },
+    "train_args":{
+        "version": "v20",
+        "masking_token": "[UNK]",
+        "batch_size": 32,
+        "learning_rate": 5e-6,
+        "margin": 0.5,
+        "epoch": 20,
+        "early_stopping": 3
+    },
+    "gpu":{
+        "type": "single",
+        "number": "1"
+    },
+    "Desc": "777, [UNK] 활용, GN: 5개, HN: 최대 20개, Dev 데이터 추가, learning_rate 1e-6로 변경"
+}
