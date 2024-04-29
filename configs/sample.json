@@ -1,7 +1,7 @@
 {
     "data_args": {
-        "path": "generated_questions_1068.csv",
-        "eval_data_path": "../test_data/mirae_test.csv",
+        "path": "generated_questions_single_q_test.csv",
+        "eval_data_path": "generated_questions_single_q_train.csv",
         "mask_eval_data_path": "../test_data/unk_mrn_test.csv",
         "eval_att_list": {
             "수학 용어": ["설명", "페이지", "단원 번호", "용어"],
