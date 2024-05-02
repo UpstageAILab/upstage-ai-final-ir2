@@ -73,9 +73,6 @@
 
 ### Directory
 
-- _Insert your directory structure_
-
-e.g.
 ```
 ├── code
 ├── configs
@@ -121,14 +118,43 @@ e.g.
 
 ### EDA
 
-- _Describe your EDA process and step-by-step conclusion_
+- 과학 질문의 종류
+src에서 출처인 ko_mmlu와 ko_ai2를 제외하고, 뒷부분의 train, validation, test를 제외한 가운데 부분을 과학 지식 domain으로 설정한다.
+ko_mmlu__conceptual_physics__test
+ko_ai2_arc__ARC_Challenge__test
+위 두 예시인 경우 conceptual_physics와 ARC_Challenge로 만들어서 domain에 할당한다.
+모든 domain을 모아보면 아래와 같다.  
+
+```
+'nutrition', 'conceptual_physics', 'ARC_Challenge',
+'human_sexuality', 'virology', 'human_aging',
+'high_school_biology', 'high_school_physics', 'college_biology',
+'computer_security', 'anatomy', 'college_physics',
+'medical_genetics', 'electrical_engineering', 'college_medicine',
+'college_chemistry', 'astronomy', 'college_computer_science',
+'global_facts', 'high_school_chemistry',
+'high_school_computer_science'
+```
 
 ### Data Processing
 
-- 멘토님의 조언에 따라서 질의와 응답의 pair를 Cosine Embedding Loss로 최적화 시도.
-- 이를 위해서는 질의와 응답 페어들을, positive pair와 negative pair를로 만들어야한다.
+- 현재 documents.jsonl에는 정답에 해당하는 문서만 존재하고 질문(혹은 질의)가 없다.
 - 주어진 문서에 대한 질의가 없으므로 다른 LLM을 활용하여 생성.
 - 무료 API인 Google의 Gemini를 이용해 생성.
+- 멘토님의 조언에 따라서 질의와 응답의 pair를 Cosine Embedding Loss로 최적화 시도.
+- 이를 위해서는 질의와 응답 페어들을, positive pair와 negative pair들로 만들어야한다.
+- Positive pair는 관련이 있는 질의와 응답 쌍이다.
+- Negative pair는 관련이 없는 질의와 응답 쌍이다.
+
+e.g. 
+질의 Q가 "태양의 지름이 얼마야?" 일 때,
+
+관련이 있는 문서는 
+"태양은 지구 지름의 109배인 139만㎞, 무게는 지구보다 무려 33만 2,900배나 무겁습니다.
+태양계 전체 질량의 99.8% 이상을 차지하고, 태양계의 중심에 위치하여 지구를 포함한 8개 행성과 위성, 혜성 등의 운동을 지배하고 있는 별입니다." 이고,
+
+관련이 없는 문서는
+"인공지능(AI)은 컴퓨터에서 음성 및 작성된 언어를 보고 이해하고 번역하고 데이터를 분석하고 추천하는 기능을 포함하여 다양한 고급 기능을 수행할 수 있는 일련의 기술입니다."다.
 
 ## 4. Modeling
 
@@ -163,4 +189,5 @@ e.g.
 
 ### Reference
 
-- _Insert related reference_
+- [태양의 지름](https://www.science.go.kr/board?menuId=MENU00366&siteId=)
+- [인공지능이란 무엇인가](https://cloud.google.com/learn/what-is-artificial-intelligence?hl=ko)
