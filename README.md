@@ -29,7 +29,7 @@
 - LLM의 등장 이후 여러 산업 분야에서 지식을 다루는 업무들이 점점 고도화되고 있습니다.
   특히 정보를 찾기 위해 검색엔진의 입력창에 키워드를 입력하고 결과를 확인하고 원하는 정보가 없으면 다른 키워드로 다시 검색하기를 반복하는 번거로운 과정을 이제 더이상 자주 할 필요가 없어졌습니다.
   이제 LLM한테 물어보면 질문의 의도까지 파악해서 필요한 내용만 잘 정리해서 알려 줍니다.  
-  ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/blobmain/docs/prompt_0.png)  
+  ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/prompt_0.png)  
   
 - 그렇지만 LLM이 가진 근본적인 한계도 있습니다. 먼저, 정보라는 것은 의미나 가치가 시간에 따라 계속 변하기 때문에 모델이 이를 실시간으로 학습하기 힘들고 이 때문에 아래 예시처럼 knowledge cutoff 가 자연스럽게 발생합니다.  
   ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/prompt_1.png)  
