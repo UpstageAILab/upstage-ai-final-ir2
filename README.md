@@ -4,7 +4,7 @@
 | ![김태한](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김소현](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김준호](https://avatars.githubusercontent.com/u/156163982?v=4) | ![최장원](https://avatars.githubusercontent.com/u/156163982?v=4) |  
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |  
 |   [김태한](https://github.com/UpstageAILab)   |    [김소현](https://github.com/UpstageAILab)       |   [김준호](https://github.com/UpstageAILab)     |            [최장원](https://github.com/UpstageAILab)             |   
-|    팀장, 리서치, 데이터생성, 모델링   |      리서치, 데이터생성, 모델링          |           리서치, 데이터생성, 모델링         |     리서치, 데이터생성, 모델링    |  
+|    팀장, 리서치, 데이터생성, 모델링, 후처리   |      리서치, 데이터생성, 모델링, 후처리          |           리서치, 데이터생성, 모델링, 후처리         |     리서치, 데이터생성, 모델링, 후처리    |  
 
 ## 0. Overview
 ### Environment
@@ -236,7 +236,9 @@ soynlp를 활용하여 NER을 sentence_transformer에 vocab을 등록하려했�
 
 **LoRA (Low-Rank Adaptation of Large Language Models) 적용**
 - LoRA를 "snunlp/KR-SBERT-V40K-klueNLI-augSTS"에 적용해서 파인튜닝해서 성능 향상을 도모했다.
+- Loss는 아래 식의 Cosine Embedding Loss를 사용했다. 관련있는 Q와 D (document)는 가깝게, 관련없는 Q와 D는 서로 멀도록 학습한다.  
 
+![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/CosineEmbeddingLoss.PNG)  
 
 ### Modeling Process
 
@@ -246,12 +248,17 @@ soynlp를 활용하여 NER을 sentence_transformer에 vocab을 등록하려했�
 
 ### Leader Board
 
-- _Insert Leader Board Capture_
-- _Write rank and score_
+- Public Leaderboard
+
+![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/public_leaderboard.PNG) 
+
+- Final Leaderboard
+
+![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/final_leaderboard.PNG) 
 
 ### Presentation
 
-- _Insert your presentaion file(pdf) link_
+[PPT 파일](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/IR대회_2조_Upstage_AI_Lab_1기.pdf)
 
 ## Retrospective
 - 멘토님이 질의와 응답에 대한 hard negative pairs를 생성하라고 조언해주셨다.
