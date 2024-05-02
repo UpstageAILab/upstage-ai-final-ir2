@@ -258,7 +258,7 @@ soynlp를 활용하여 NER을 sentence_transformer에 vocab을 등록하려했�
 
 ### Presentation
 
-[PPT 파일](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/IR대회_2조_Upstage AI Lab 1기.pdf)
+[PPT 파일](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/IR대회_2조_Upstage_AI_Lab_1기.pdf)
 
 ## Retrospective
 - 멘토님이 질의와 응답에 대한 hard negative pairs를 생성하라고 조언해주셨다.
