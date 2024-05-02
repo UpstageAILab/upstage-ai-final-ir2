@@ -183,6 +183,15 @@ ko_ai2_arc__ARC_Challenge__test
 - 현재 documents.jsonl에는 정답에 해당하는 문서만 존재하고 질문(혹은 질의)가 없다.
 - 주어진 문서에 대한 질의가 없으므로 다른 LLM을 활용하여 생성.
 - 무료 API인 Google의 Gemini를 이용해 생성.
+
+질문 생성은 다음의 간단한 명령어를 통해서 생성했다.
+```
+f"""{document}
+
+위 문서에서 질문 5개 만들어줘
+"""
+```
+  
 - 멘토님의 조언에 따라서 질의와 응답의 pair를 Cosine Embedding Loss로 최적화 시도.
 - 이를 위해서는 질의와 응답 페어들을, positive pair와 negative pair들로 만들어야한다.
 - Positive pair는 관련이 있는 질의와 응답 쌍이다.
@@ -202,7 +211,32 @@ e.g.
 
 ### Model descrition
 
-- _Write model information and why your select this model_
+Baseline에 있는 Elasticsearch를 최대한 활용하고,
+OpenAI API를 활용하여"gpt-3.5-turbo-1106" 모델을 통해 답변을 생성.  
+Elasticsearch의 sparse retrieval과 dense retrieval을 통해 LLM이 참조할 topk reference 생성.  
+해당 레퍼런스와 프롬프트 엔지니어링을 통해서 정답 생성.  
+
+**Sparse Retrieval**
+Elasticsearch의 역색인을 사용한다.
+역색인의 기본 랭킹 알고리즘은 BM25다.  
+역색인에 사용한 단어, token은 sentence_transformers의 "snunlp/KR-SBERT-V40K-klueNLI-augSTS"의 encode로 생성한다.  
+soynlp를 활용하여 NER을 sentence_transformer에 vocab을 등록하려했으나 수행하지 않았다.  
+
+**Dense Retrieval**
+- KLUE-RoBERTa Fine-Tuning with Cosine Embedding Loss 
+한국어로 학습된 KLUE-RoBERTa를 파인튜닝한 다음 해당하는 token embedding으로 dense retrieval 수행을 시도했으나 Elasticsearch와 결합하지 못해서 사용하지 못했다.
+- sentence_transformers의 "snunlp/KR-SBERT-V40K-klueNLI-augSTS" 사용  
+베이스라인 코드에 있는 sentence_transformers의 "snunlp/KR-SBERT-V40K-klueNLI-augSTS"를 그대로 사용하여 dense retvieval 수행.
+
+**Prompt Engineering**
+- persona_qa와 persona_function_calling의 프롬프트를 변경해서 과학 문서인지 아닌지를 LLM이 판단해서 결과를 반환한다.
+```
+결과는 json 형태로 생성하고, 'is_science' 필드를 추가하여 질문이 과학 지식에 관련된 내용이면 true를, 과학 지식에 관련된 내용이 아니라면 false를 value로 만든다. 답변 필드의 이름은 'answer'로 통일한다.
+```
+
+**LoRA (Low-Rank Adaptation of Large Language Models) 적용**
+- LoRA를 "snunlp/KR-SBERT-V40K-klueNLI-augSTS"에 적용해서 파인튜닝해서 성능 향상을 도모했다.
+
 
 ### Modeling Process
 
