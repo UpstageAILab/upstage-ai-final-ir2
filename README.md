@@ -29,13 +29,13 @@
 - LLM의 등장 이후 여러 산업 분야에서 지식을 다루는 업무들이 점점 고도화되고 있습니다.
   특히 정보를 찾기 위해 검색엔진의 입력창에 키워드를 입력하고 결과를 확인하고 원하는 정보가 없으면 다른 키워드로 다시 검색하기를 반복하는 번거로운 과정을 이제 더이상 자주 할 필요가 없어졌습니다.
   이제 LLM한테 물어보면 질문의 의도까지 파악해서 필요한 내용만 잘 정리해서 알려 줍니다.  
-  ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/tree/main/docs/prompt_0.png)  
+  ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/blobmain/docs/prompt_0.png)  
   
 - 그렇지만 LLM이 가진 근본적인 한계도 있습니다. 먼저, 정보라는 것은 의미나 가치가 시간에 따라 계속 변하기 때문에 모델이 이를 실시간으로 학습하기 힘들고 이 때문에 아래 예시처럼 knowledge cutoff 가 자연스럽게 발생합니다.  
-  ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/tree/main/docs/prompt_1.png)  
+  ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/prompt_1.png)  
 
 - 그리고 LLM이 알려주는 지식이 항상 사실에 기반한 것이 아닌 경우가 종종 있습니다. 특히 특정 도메인이나 문제 영역은 매우 심각한 거짓 정보들을 생성해 내곤 합니다. 아래 예시에서 추천하는 맛집들은 모두 실재하지 않는 장소들입니다.  
-  ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/tree/main/docs/prompt_2.png)  
+  ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/prompt_2.png)  
   
 - 이러한 환각 현상은 메타인지를 학습하지 않은 LLM의 근본적인 한계라 볼 수 있습니다.
   모델은 학습 과정에서 정보를 압축해서 저장하기 때문에 정보의 손실이 발생할 수밖에 없고, 이 때문에 특정 입력 조건에 대해서는 사실 여부보다는 지식를 표현하는 국소적인 패턴이 더 큰 영향을 주면서 답변이 생성될 수 있기 때문입니다.
@@ -45,7 +45,7 @@
   이렇게 사실에 기반한 지식 정보를 토대로 질문에 답을 하고 출처 정보도 같이 줄 수 있기 때문에 사용자는 훨씬 더 안심하고 정보를 소비할 수 있게 됩니다.
   아래의 그림이 바로 RAG 구조입니다.  
     
-  ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/tree/main/docs/rag_structure.png)  
+  ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/rag_structure.png)  
   
 - RAG는 질문에 적합한 레퍼런스 추출을 위해 검색엔진을 활용하고 답변 생성을 위해 LLM(Large Language Model)을 활용합니다.
   이때 LLM은 스스로 알고 있는 지식을 출력하기보다는 언어 추론 능력을 극대화하는 것에 방점을 둡니다.
