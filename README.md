@@ -8,10 +8,15 @@
 
 ## 0. Overview
 ### Environment
-- _Write Development environment_
+- AMD Ryzen Threadripper 3960X 24-Core Processor
+- NVIDIA GeForce RTX 3090
+- CUDA Version 12.2
 
 ### Requirements
-- _Write Requirements_
+- openai==1.7.2
+- elasticsearch==8.8.0
+- sentence_transformers==2.2.2
+- wandb
 
 ## 1. Competiton Info
 
@@ -51,17 +56,25 @@
 e.g.
 ```
 ├── code
-│   ├── jupyter_notebooks
-│   │   └── model_train.ipynb
-│   └── train.py
+├── configs
+├── datasets
+├── logger
+├── models
 ├── docs
 │   ├── pdf
 │   │   └── (Template) [패스트캠퍼스] Upstage AI Lab 1기_그룹 스터디 .pptx
 │   └── paper
-└── input
-    └── data
-        ├── eval
-        └── train
+└── data
+│   ├── documents.jsonl
+│   ├── eval.jsonl
+│   ├── generated_questions_single_train.csv
+│   ├── generated_questions_single_val.csv
+│   ├── generated_questions_single_test.csv
+│   ├── generated_questions_multiple_train.csv
+│   ├── generated_questions_multiple_val.csv
+│   └── generated_questions_multiple_test.csv
+│   └── gemini_q_generation_sample.ipynb
+└────────── train.py
 ```
 
 ## 3. Data descrption
@@ -113,7 +126,7 @@ e.g.
 
 ### Meeting Log
 
-- _Insert your meeting log link like Notion or Google Docs_
+- [IR 멘토링 기록](https://docs.google.com/document/d/1BLMt-JVnX6Ira2RJkNDoZXio77PSNSD8WyvyHhn2sAA/)
 
 ### Reference
 
