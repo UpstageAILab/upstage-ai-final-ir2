@@ -130,8 +130,32 @@
 
 **평가 방법**    
 mAP (mean Average Precision)  
+mAP는 질의 N개에 대한 Average Precision의 평균 값을 구하고, Average Precision은 Precision-recall curve에서 아래쪽 면적을 의미합니다.
+계산 과정은 도식화하면 아래 그림과 같습니다.
 
+  ![image](https://github.com/UpstageAILab/upstage-ai-final-ir2/blob/main/docs/map.png)  
 
+그런데 이번 대회에서는 MAP를 약간 변형하여 RAG 평가에 적합하도록 살짝 수정한 형태의 로직을 사용합니다.
+대화 메시지가 과학 상식에 대한 질문일 수도 있고 아닐수도 있기 때문에 과학 상식 질문이 아닌 경우는 문서를 추출할 필요가 없습니다. 그래서 검색이 필요없는 ground truth 항목에 대해서는 검색 결과가 없는 경우를 1점으로 주고 그렇지 않는 경우는 0점으로 계산하게 로직을 추가했습니다.
+아래 코드의 else 부분이 이에 해당하고 나머지 로직은 원래 MAP 계산 로직을 그대로 따릅니다.
+
+```
+def calc_map(gt, pred):    
+    sum_average_precision = 0    
+    for j in pred:        
+        if gt[j["eval_id"]]:            
+            hit_count = 0            
+            sum_precision = 0            
+            for i,docid in enumerate(j["topk"][:3]):                
+                if docid in gt[j["eval_id"]]:                    
+                    hit_count += 1                    
+                    sum_precision += hit_count/(i+1)            
+            average_precision = sum_precision / hit_count if hit_count > 0 else 0        
+        else:            
+            average_precision = 0 if j["topk"] else 1        
+        sum_average_precision += average_precision    
+    return sum_average_precision/len(pred)
+```
 
 
 ### EDA
