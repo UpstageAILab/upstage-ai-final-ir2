@@ -17,6 +17,7 @@
 - elasticsearch==8.8.0
 - sentence_transformers==2.2.2
 - wandb
+- gemini
 
 ## 1. Competiton Info
 
